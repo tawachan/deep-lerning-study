@@ -21,7 +21,7 @@ for i in range(iters_num):
     grad = network.numerical_gradient(x_batch, t_batch)
 
     for key in grad.keys():
-        network.params[key] -= learning_rate + grad[key]
+        network.params[key] -= learning_rate * grad[key]
 
     loss = network.loss(x_batch, t_batch)
     print("iter", i, "loss", loss)
